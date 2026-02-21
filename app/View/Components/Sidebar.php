@@ -23,6 +23,19 @@ class Sidebar extends Component
                 'icon' => 'fas fa-home',
                 'is_dropdown' => false,
             ],
+            [
+                'name' => 'Master Data',
+                'route' => '#',
+                'is_active' => request()->routeIs('master.*'),
+                'icon' => 'fas fa-store',
+                'is_dropdown' => true,
+                'items' => [
+                    [
+                        'label' => 'Product Category',
+                        'route' => 'master.product-category.index',
+                    ],
+                ],
+            ],
         ];
     }
 
