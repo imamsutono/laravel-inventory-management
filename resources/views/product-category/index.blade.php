@@ -5,11 +5,24 @@
 @section('content')
     <div class="card">
         <div class="card-body p-5">
-            <div>
-                <x-product-category.product-category-form />
+            <div class="row">
+                <div class="row col-10 align-items-center justify-content-between">
+                    <div class="col-1">
+                        <x-per-page-option />
+                    </div>
+                    <div class="col-9">
+                        <x-filter-by-field term="search" placeholder="Search by category name" />
+                    </div>
+                    <div class="col-1">
+                        <x-button-reset-filter route="master.product-category.index" />
+                    </div>
+                </div>
+                <div class="col-2 d-flex justify-content-end">
+                    <x-product-category.product-category-form />
+                </div>
             </div>
 
-            <table class="table">
+            <table class="table mt-5">
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 15px;">No</th>
@@ -36,6 +49,8 @@
                     @endforelse
                 </tbody>
             </table>
+
+            {{ $categories->links() }}
         </div>
     </div>
 @endsection

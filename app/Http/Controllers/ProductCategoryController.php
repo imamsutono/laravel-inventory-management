@@ -13,8 +13,16 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $pageTitle = $this->pageTitle;
+        $perPage = request()->query('perPage', 10);
         $query = ProductCategory::query();
-        $categories = $query->paginate(10);
+        $search = request()->query('search');
+
+        if ($search) {
+            $query->where('name', 'like', '%'.$search.'%');
+        }
+
+        $categories = $query->paginate($perPage)->appends(request()->query());
+
         confirmDelete('Deleting product category cannot be undone. Are you sure?');
 
         return view('product-category.index', compact('pageTitle', 'categories'));
