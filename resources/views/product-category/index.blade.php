@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end">
-                    <x-product-category.product-category-form />
+                    <x-product-category.form />
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                             <td>{{ $category->name }}</td>
                             <td>
                                 <div class="d-flex align-items-center gap-2">
-                                    <x-product-category.product-category-form :id="$category->id" />
+                                    <x-product-category.form :id="$category->id" />
                                     <x-confirm-delete :id="$category->id" route="master.product-category.destroy" />
                                 </div>
                             </td>

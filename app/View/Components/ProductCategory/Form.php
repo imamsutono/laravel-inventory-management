@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components\productCategory;
+namespace App\View\Components\ProductCategory;
 
 use App\Models\ProductCategory;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProductCategoryForm extends Component
+class Form extends Component
 {
     public $id;
 
@@ -34,6 +34,6 @@ class ProductCategoryForm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product-category.product-category-form');
+        return view('components.product-category.form');
     }
 }
